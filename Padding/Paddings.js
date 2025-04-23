@@ -15,10 +15,11 @@ const ThePlaintextLenght = document.getElementById("TheplaintextInput")
 
 
 
-const blocksize  = 64    // since am using blowfish algorithm, the default blocksize is 64
+
+export const blocksize  = 64    // since am using blowfish algorithm, the default blocksize is 64
 
 
- function calculatepaddingsize (datalenght) {
+  export function calculatepaddingsize (datalenght) {
 
 
 // const blocksize : number = 64    // since am using blowfish algorithm, the default blocksize is 64
@@ -31,19 +32,11 @@ return paddingSize
 }
 
 
-
-console.log(calculatepaddingsize(20) )    // tested
-
-
+ 
+  export function numberofblocks ( datalenght){
 
 
-
-// calculating the number of blocks required
-
-let lengthoftext  = ThePlaintextLenght.value.replace(/ /g, "").length;
+     return   Math.ceil( datalenght / blocksize )
 
 
-const numberofblocks =  lengthoftext / blocksize
-
-
-console.log( numberofblocks)    // tested, nothing actually happens because there is no event listener to get the plaintext input
+}
