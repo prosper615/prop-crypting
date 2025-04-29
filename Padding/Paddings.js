@@ -33,13 +33,7 @@ return paddingSize
 
 
  
-  export function numberofblocks ( datalenght){
 
-
-     return   Math.ceil( datalenght / blocksize )
-
-
-}
 
 
 
@@ -63,15 +57,40 @@ const check64bit = hexvalue.length
 const paddit = sizeofblock - ( check64bit %  sizeofblock)
 
 
+/**
+ * Applies PKCS#7 padding scheme to fill the word to a complete 64-bit length.
+ * The padding size is determined by the number of bytes needed to reach the 64-bit boundary.
+ * The padding bytes are filled with the value of the padding size.
+ 
+ */
+
+const hexvalueofpadit = paddit.toString(16).padStart( 2, "0")
+
+
+// Now a new array that would be used to fill up to 64 bits i.e the padding
+
+const fillwithpad = new Array(paddit).fill(hexvalueofpadit)
+
+
+// Now joining it with the initial word, which means am concatenating the padding with the original word
+
+const wordandpadding = [ ...hexvalue, ...fillwithpad]
 
 
 
 
+// Since 16 hex value is 64 bits 
+if(check64bit < 16){
 
-return paddit
+  // returns the padding if less than 64 bits
 
+  return wordandpadding.join("")  
 
+}else{
 
+// return the value if not less than 64 bits
+
+  return  hexvalue 
 
 
 
@@ -80,43 +99,17 @@ return paddit
 
 
 
-
-// const me = "I love software engineering "
-
-
-// const toseehex = [...me].map( b=> b.charCodeAt(0).toString(16).padStart( 2 , "0" )).join("")
-
-
-// console.log( toseehex)
-
-
-
-
-/*
-
-
-
-function padTo64BitBlocks(input) {
-  const cleaned = input.replace(/\s/g, ""); // Remove spaces
-  const bytes = new TextEncoder().encode(cleaned); // Convert to bytes (UTF-8)
-  const blockSize = 8;
-
-  // Calculate padding
-  const paddingNeeded = blockSize - (bytes.length % blockSize);
-  const padded = new Uint8Array(bytes.length + paddingNeeded);
-
-  padded.set(bytes);
-  padded.fill(paddingNeeded, bytes.length); // PKCS#5/7-style padding
-
-  return padded;
 }
 
-const input = "hello this is more than 64 bits";
-const paddedBytes = padTo64BitBlocks(input);
-
-console.log("Total bytes (after padding):", paddedBytes.length);
-console.log("Number of 64-bit blocks:", paddedBytes.length / 8);
 
 
+ 
 
-*/
+
+export function numberofblocks ( datalenght){
+
+
+  return   Math.ceil( datalenght / blocksize )
+
+
+}
