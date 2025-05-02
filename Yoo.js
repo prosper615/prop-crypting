@@ -1,5 +1,8 @@
 
 
+
+
+
 import { getrandomnumbers } from "./GenerateRandom/RandomNumber.js"
 
 
@@ -8,49 +11,84 @@ import { mersenneprime, mersenneprime1, lowerchoosenmerseene,lowerchoosenmerseen
 
 import { HashRandomNumber } from "./GenerateRandom/HashRandomNumber.js"
 
+// import { blocksize, calculatepaddingsize,  numberofblocks } from "./Padding/Paddings.js"
 
-import { blocksize, calculatepaddingsize,  numberofblocks } from "./Padding/Paddings.js"
-
-
-
+import { tohex } from "./Padding/Paddings.js"
 
 
 
+import { blowfishing } from "./BlowFishing/blowfishalgo.js"
 
+import { divideinputs } from "./Padding/DivideintoTwo.js"
 
+// import { Xl } from "./Padding/Xl.js"
 
-document.addEventListener('DOMContentLoaded', function() {
+import { generateSBox, S1, S2, S3, S4  } from "./KeyExpansion/Sbox.js"
 
-    const submitInput = document.getElementById("submitinput");
-
-    const thePlaintextInput = document.getElementById("theplaintextInput");
-
-
-
-    submitInput.addEventListener("click", function() {
-
-      const theInputValue = thePlaintextInput.value;
-
-      let lengthOfText = theInputValue.replace(/ /g, "").length;
-
-      console.log(lengthOfText); 
-
-
-console.log( calculatepaddingsize(lengthOfText))
-
-console.log(numberofblocks(lengthOfText))
-
-
-    });
-
-  });
+import { eightbitdivide } from "./Padding/Xl.js"
 
 
 
 
-const fileinput = document.getElementById("fileinput") 
+const TheplaintextInput  = document.getElementById("TheplaintextInput")
 
-const displayfile = document.getElementById("displayfile") 
+
+
+
+
+
+
+
+
+
+function checkyourpadding(){
+
+
+    submitInput.addEventListener("click",  async ()=> {
+  
+      let theInputValue = TheplaintextInput.value
+
+// Get the hex value the user input
+ let thewordandpadding =  tohex(theInputValue )
+
+
+ // Extracting the left 32 bit half of the user input
+ 
+ let extracthalf = divideinputs(thewordandpadding)
+
+let left32bit = extracthalf.the32bit
+
+
+    console.log(thewordandpadding)
+
+    console.log(left32bit )
+
+
+    console.log(eightbitdivide())
+
+
+
+  
+    })
+  
+}
+
+
+
+  document.addEventListener('DOMContentLoaded', ()=>{ 
+
+// The function below returns the word + it's padding
+
+      checkyourpadding()
+
+    
+
+
+    
+});
+
+
+
 
 
 const seerandom = getrandomnumbers( mersenneprime1,  lowerchoosenmerseene1 )
@@ -60,12 +98,6 @@ const seerandom = getrandomnumbers( mersenneprime1,  lowerchoosenmerseene1 )
 
 
    
-
-
-
-
-
-
 
 
 
