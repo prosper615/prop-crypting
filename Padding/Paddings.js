@@ -35,12 +35,6 @@ return paddingSize
  
 
 
-
-
-
-
-
-
 // This function is to pad the input with the actual hex value, also converting to hex value
 
  export function tohex ( wordtohex) {
@@ -49,6 +43,9 @@ return paddingSize
 
 
 const hexvalue = Array.from(wordtohex).map( hex => hex.charCodeAt(0).toString(16).padStart( 2 , "0" )).join("")
+
+
+const hexprefix = "0x"
 
 
 const check64bit = hexvalue.length
@@ -79,18 +76,9 @@ const wordandpadding = [ ...hexvalue, ...fillwithpad]
 
 
 
-// Since 16 hex value is 64 bits 
-if(check64bit < 16){
+  return    hexprefix +  hexvalue  
+ 
 
-  // returns the padding if less than 64 bits
-
-  return wordandpadding.join("")  
-
-}else{
-
-// return the value if not less than 64 bits
-
-  return  hexvalue 
 
 
 
@@ -99,7 +87,7 @@ if(check64bit < 16){
 
 
 
-}
+
 
 
 
