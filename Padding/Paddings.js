@@ -107,3 +107,53 @@ export function numberofblocks ( datalenght){
 
 
 
+
+// correcting... , the words should be represented in binary and not in hex which had caused returning of minus value 
+// for the previous version of my implementation of blowfish algo..
+
+
+
+    export function tobinary( value_tobinary){
+
+
+  const encodeit = new  TextEncoder
+
+  const beingencoded = encodeit.encode(value_tobinary)
+
+  const first_tounit = Array.from( new Uint8Array(beingencoded))
+
+   const show_thebinary =  first_tounit.map(binaring => binaring.toString(2).padStart(8,"0" ) ).join("")
+
+
+
+  return show_thebinary
+
+
+
+
+
+}
+
+
+
+
+
+
+
+export function tobinary2(value_tobinary2) {
+
+  // Remove any optional '0x' prefix and ensure even length
+
+const hex = value_tobinary2.replace(/^0x/, '').padStart(value_tobinary2.length + value_tobinary2.length % 2, '0');
+
+  // Convert hex pairs to binary
+
+  const binaryString = hex.match(/.{2}/g).map(byte => parseInt(byte, 16).toString(2).padStart(8, '0')).join('');
+
+  return binaryString;
+}
+
+
+
+
+
