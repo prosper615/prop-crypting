@@ -16,9 +16,6 @@ import { HashRandomNumber } from "./GenerateRandom/HashRandomNumber.js"
 import { tohex } from "./Padding/Paddings.js"
 
 
-
-import { blowfishing } from "./BlowFishing/blowfishalgo.js"
-
 import { divideinputs } from "./Padding/DivideintoTwo.js"
 
 // import { Xl } from "./Padding/Xl.js"
@@ -26,6 +23,24 @@ import { divideinputs } from "./Padding/DivideintoTwo.js"
 import { generateSBox, S1, S2, S3, S4  } from "./KeyExpansion/Sbox.js"
 
 import { eightbitdivide } from "./Padding/Xl.js"
+
+import { Parrays } from "./KeyExpansion/Parrays.js"
+
+
+import { roundingfunction  } from "./BlowFishing/RoundFunction.js"
+
+import { blowfishing } from "./BlowFishing/blowfishalgo.js"
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -66,6 +81,12 @@ let left32bit = extracthalf.the32bit
 
     console.log(eightbitdivide())
 
+    console.log( roundingfunction())
+
+
+    console.log( blowfishing( ))
+
+
 
 
   
@@ -97,8 +118,8 @@ const seerandom = getrandomnumbers( mersenneprime1,  lowerchoosenmerseene1 )
  HashRandomNumber(seerandom).then(hashed=> {console.log(hashed)})
 
 
-   
 
+ 
 
 
 

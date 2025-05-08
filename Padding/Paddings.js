@@ -45,6 +45,8 @@ return paddingSize
 const hexvalue = Array.from(wordtohex).map( hex => hex.charCodeAt(0).toString(16).padStart( 2 , "0" )).join("")
 
 
+
+
 const hexprefix = "0x"
 
 
@@ -101,3 +103,7 @@ export function numberofblocks ( datalenght){
 
 
 }
+
+
+
+

@@ -55,7 +55,6 @@ const S3operation = S3.map( mapper => mapper * thes3)
 const S4operation = S4.map( mapper => mapper * thes4)
 
 
-
 // Now implementing the addition of S1 and S2 and also S3 and S4 respectively
 
 // Remember as specified earlier S1[A1] + S2[B1]  and S3[C1] + S4[D1]
@@ -67,7 +66,7 @@ return reduc + accu
 
 }, 0)
 
-
+// Ooooh i heard i should follow this principle : "DRY" 
 
 const s3ands4 =  [...S3operation, ...S4operation].reduce( (reduc , accu)=>{
 
