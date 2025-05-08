@@ -9,25 +9,17 @@ import { getrandomnumbers } from "./GenerateRandom/RandomNumber.js"
 import { mersenneprime, mersenneprime1, lowerchoosenmerseene,lowerchoosenmerseene1 } from "./GenerateRandom/RandomNumber.js"
 
 
+
+// Am gonna use this as salt incase i extend to trying to implement pbkd like bycrypt
 import { HashRandomNumber } from "./GenerateRandom/HashRandomNumber.js"
 
-// import { blocksize, calculatepaddingsize,  numberofblocks } from "./Padding/Paddings.js"
 
 import { tohex } from "./Padding/Paddings.js"
 
 
 import { divideinputs } from "./Padding/DivideintoTwo.js"
 
-// import { Xl } from "./Padding/Xl.js"
 
-import { generateSBox, S1, S2, S3, S4  } from "./KeyExpansion/Sbox.js"
-
-import { eightbitdivide } from "./Padding/Xl.js"
-
-import { Parrays } from "./KeyExpansion/Parrays.js"
-
-
-import { roundingfunction  } from "./BlowFishing/RoundFunction.js"
 
 import { blowfishing } from "./BlowFishing/blowfishalgo.js"
 
