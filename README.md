@@ -11,4 +11,4 @@ After reading this paper, I explored implementing a simplified version of the Bl
 
  Randomness is non-cryptographic – I'm using Math.random() for any random values, which is not cryptographically secure.
 
- No key-based encryption – This version does not implement true key-based encryption; it’s intended for educational or experimental purposes only.
+ No key-based encryption – This version does not implement true key-based encryption; i did it just for fun.
