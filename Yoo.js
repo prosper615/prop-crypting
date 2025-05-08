@@ -19,7 +19,7 @@ import { tohex } from "./Padding/Paddings.js"
 
 import { divideinputs } from "./Padding/DivideintoTwo.js"
 
-
+import { eightbitdivide } from "./Padding/Xl.js"
 
 import { blowfishing } from "./BlowFishing/blowfishalgo.js"
 
@@ -71,9 +71,9 @@ let left32bit = extracthalf.the32bit
     console.log(left32bit )
 
 
-    console.log(eightbitdivide())
+    const blowfished = document.getElementById("blowfished")
 
-    console.log( roundingfunction())
+    blowfished.textContent = blowfishing()
 
 
     console.log( blowfishing( ))

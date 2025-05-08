@@ -1,0 +1,97 @@
+
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+}
+
+.input-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+#TheplaintextInput {
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px 0 0 5px;
+    width: 300px;
+}
+
+#submitInput {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 0 5px 5px 0;
+    background-color: #4CAF50;
+    color: #fff;
+    cursor: pointer;
+}
+
+#submitInput:hover {
+    background-color: #3e8e41;
+}
+
+.encryption-visualization {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+}
+
+.plaintext-box, .ciphertext-box {
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #fff;
+    width: 200px;
+    text-align: center;
+}
+
+.encryption-process {
+    margin: 0 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.lock-icon {
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+
+.lock-icon::before {
+    content: "\1F512";
+}
+
+.encryption-text {
+    font-size: 16px;
+    color: #666;
+}
+
+.encrypting {
+    animation: encrypting 2s infinite;
+}
+
+@keyframes encrypting {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.ciphertext-box {
+    background-color: #dff0d8;
+    border-color: #8bc34a;
+}
+
+.plaintext-box {
+    background-color: #fcf8e3;
+    border-color: #faebcc;
+}
